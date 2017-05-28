@@ -1,0 +1,39 @@
+{
+  "name"              : "valkyrja/valkyrja-twig",
+  "type"              : "project",
+  "description"       : "The Valkyrja Framework Twig Bridge.",
+  "homepage"          : "http://www.valkyrja.io",
+  "keywords"          : [
+    "framework",
+    "valkyrja",
+    "twig"
+  ],
+  "license"           : "MIT",
+  "authors"           : [
+    {
+      "name"  : "Melech Mizrachi",
+      "email" : "melechmizrachi@valkyrja.io"
+    }
+  ],
+  "require"           : {
+    "php"               : ">=7.1",
+    "twig/twig"         : "~1.33",
+    "valkyrja/valkyrja" : "^0.5.1"
+  },
+  "require-dev"       : {
+    "fzaninotto/faker" : "~1.4",
+    "phpunit/phpunit"  : "~6.1"
+  },
+  "autoload"          : {
+    "psr-4" : {
+      "Valkyrja\\Twig\\" : "src"
+    }
+  },
+  "minimum-stability" : "dev",
+  "prefer-stable"     : true,
+  "extra"             : {
+    "branch-alias" : {
+      "dev-master" : "0.1-dev"
+    }
+  }
+}
