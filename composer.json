@@ -1,7 +1,7 @@
 {
   "name"              : "valkyrja/valkyrja-twig",
   "type"              : "project",
-  "description"       : "The Valkyrja Framework Twig Bridge.",
+  "description"       : "The Valkyrja Framework Twig Component.",
   "homepage"          : "http://www.valkyrja.io",
   "keywords"          : [
     "framework",
