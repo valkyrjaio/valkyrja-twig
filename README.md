@@ -1,2 +1,3 @@
-# valkyrja-twig
-Valkyrja Application Twig View Bridge
+# Valkyrja Twig Bridge
+
+A Valkyrja framework component for adding Twig support for views.
