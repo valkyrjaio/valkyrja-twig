@@ -30,7 +30,11 @@ class TwigConfigProvider extends Provider
     public static function publish(Application $app): void
     {
         if (! isset($app->config()['twig'])) {
-            $app->addConfig(require __DIR__ . '/../config.php');
+            $app->addConfig(
+                [
+                    'twig' => require __DIR__ . '/../config.php',
+                ]
+            );
         }
     }
 }
