@@ -117,10 +117,9 @@ class TwigServiceProvider extends Provider
      */
     public static function getTwigView(Application $app): TwigView
     {
-        $view = new TwigView($app);
-
-        $view->setTwig($app->container()->getSingleton(Twig_Environment::class));
-
-        return $view;
+        return new TwigView(
+            $app,
+            $app->container()->getSingleton(Twig_Environment::class)
+        );
     }
 }

@@ -15,7 +15,6 @@ use Twig_Environment;
 use Valkyrja\Contracts\Application;
 use Valkyrja\Contracts\View\View as ViewContract;
 use Valkyrja\Support\Directory;
-use Valkyrja\Twig\Contracts\TwigView as TwigViewContract;
 use Valkyrja\View\View;
 
 /**
@@ -23,7 +22,7 @@ use Valkyrja\View\View;
  *
  * @author Melech Mizrachi
  */
-class TwigView extends View implements TwigViewContract
+class TwigView extends View
 {
     /**
      * The twig environment.
@@ -36,13 +35,15 @@ class TwigView extends View implements TwigViewContract
      * View constructor.
      *
      * @param \Valkyrja\Contracts\Application $app       The application
+     * @param Twig_Environment                $twig      The Twig environment
      * @param string                          $template  [optional] The template to set
      * @param array                           $variables [optional] The variables to set
      */
-    public function __construct(Application $app, string $template = '', array $variables = [])
+    public function __construct(Application $app, Twig_Environment $twig, string $template = '', array $variables = [])
     {
         parent::__construct($app, $template, $variables);
 
+        $this->twig          = $twig;
         $this->fileExtension = $app->config()['twig']['fileExtension'];
     }
 
@@ -56,12 +57,7 @@ class TwigView extends View implements TwigViewContract
      */
     public function make(string $template = '', array $variables = []): ViewContract
     {
-        /** @var TwigViewContract $view */
-        $view = parent::make($template, $variables);
-
-        $view->setTwig($this->twig);
-
-        return $view;
+        return new static($this->app, $this->twig, $template, $variables);
     }
 
     /**
@@ -75,20 +71,6 @@ class TwigView extends View implements TwigViewContract
     {
         return $path
             ?: Directory::DIRECTORY_SEPARATOR;
-    }
-
-    /**
-     * Set the twig environment.
-     *
-     * @param Twig_Environment $twig The twig environment
-     *
-     * @return \Valkyrja\Twig\Contracts\TwigView
-     */
-    public function setTwig(Twig_Environment $twig): TwigViewContract
-    {
-        $this->twig = $twig;
-
-        return $this;
     }
 
     /**
