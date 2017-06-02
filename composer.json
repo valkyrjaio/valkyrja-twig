@@ -17,7 +17,7 @@
   ],
   "require"           : {
     "php"               : ">=7.1",
-    "twig/twig"         : "~1.33",
+    "twig/twig"         : "1.33.2",
     "valkyrja/valkyrja" : "^0.5.1"
   },
   "require-dev"       : {
@@ -33,7 +33,7 @@
   "prefer-stable"     : true,
   "extra"             : {
     "branch-alias" : {
-      "dev-master" : "0.1-dev"
+      "dev-master" : "1-dev"
     }
   }
 }
