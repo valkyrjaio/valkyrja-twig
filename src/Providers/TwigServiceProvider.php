@@ -14,9 +14,9 @@ namespace Valkyrja\Twig\Providers;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 use Valkyrja\Application;
-use Valkyrja\View\View;
 use Valkyrja\Support\Providers\Provider;
 use Valkyrja\Twig\TwigPhpView;
+use Valkyrja\View\View;
 
 /**
  * Class TwigServiceProvider.
