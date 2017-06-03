@@ -13,9 +13,9 @@ namespace Valkyrja\Twig;
 
 use Twig_Environment;
 use Valkyrja\Application;
-use Valkyrja\View\View;
 use Valkyrja\Support\Directory;
 use Valkyrja\View\PhpView;
+use Valkyrja\View\View;
 
 /**
  * Class TwigView.
