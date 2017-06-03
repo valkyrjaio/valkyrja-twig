@@ -28,7 +28,7 @@ return [
      * //
      *
      */
-    'fileExtension' => env()::TWIG_FILE_EXTENSION ?? '.twig',
+    'fileExtension' => env('TWIG_FILE_EXTENSION', '.twig'),
 
     /*
      *-------------------------------------------------------------------------
@@ -38,9 +38,11 @@ return [
      * //
      *
      */
-    'dirs'          => env()::TWIG_DIRS ?? [
-            env()::TWIG_DIR_NS ?? Twig_Loader_Filesystem::MAIN_NAMESPACE => env()::TWIG_DIR ?? Directory::resourcesPath('views'),
-        ],
+    'dirs'          => env('TWIG_DIRS',
+        [
+            env('TWIG_DIR_NS', Twig_Loader_Filesystem::MAIN_NAMESPACE) => env('TWIG_DIR', Directory::resourcesPath('views')),
+        ]
+    ),
 
     /*
      *-------------------------------------------------------------------------
@@ -50,7 +52,7 @@ return [
      * //
      *
      */
-    'compiledDir'   => env()::TWIG_COMPILED_DIR ?? Directory::storagePath('views'),
+    'compiledDir'   => env('TWIG_COMPILED_DIR', Directory::storagePath('views')),
 
     /*
      *-------------------------------------------------------------------------
@@ -60,5 +62,5 @@ return [
      * //
      *
      */
-    'extensions'    => env()::TWIG_EXTENSIONS ?? [],
+    'extensions'    => env('TWIG_EXTENSIONS', []),
 ];
