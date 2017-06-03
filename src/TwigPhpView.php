@@ -12,17 +12,17 @@
 namespace Valkyrja\Twig;
 
 use Twig_Environment;
-use Valkyrja\Contracts\Application;
-use Valkyrja\Contracts\View\View as ViewContract;
-use Valkyrja\Support\Directory;
+use Valkyrja\Application;
 use Valkyrja\View\View;
+use Valkyrja\Support\Directory;
+use Valkyrja\View\PhpView;
 
 /**
  * Class TwigView.
  *
  * @author Melech Mizrachi
  */
-class TwigView extends View
+class TwigPhpView extends PhpView
 {
     /**
      * The twig environment.
@@ -34,10 +34,10 @@ class TwigView extends View
     /**
      * View constructor.
      *
-     * @param \Valkyrja\Contracts\Application $app       The application
-     * @param Twig_Environment                $twig      The Twig environment
-     * @param string                          $template  [optional] The template to set
-     * @param array                           $variables [optional] The variables to set
+     * @param \Valkyrja\Application $app       The application
+     * @param Twig_Environment      $twig      The Twig environment
+     * @param string                $template  [optional] The template to set
+     * @param array                 $variables [optional] The variables to set
      */
     public function __construct(Application $app, Twig_Environment $twig, string $template = '', array $variables = [])
     {
@@ -53,9 +53,9 @@ class TwigView extends View
      * @param string $template  [optional] The template to set
      * @param array  $variables [optional] The variables to set
      *
-     * @return \Valkyrja\Contracts\View\View
+     * @return \Valkyrja\View\View
      */
-    public function make(string $template = '', array $variables = []): ViewContract
+    public function make(string $template = '', array $variables = []): View
     {
         return new static($this->app, $this->twig, $template, $variables);
     }

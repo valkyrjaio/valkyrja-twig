@@ -11,8 +11,8 @@
 
 namespace Valkyrja\Twig\Providers;
 
-use Valkyrja\Contracts\Application;
-use Valkyrja\Support\Provider;
+use Valkyrja\Application;
+use Valkyrja\Support\Providers\Provider;
 
 /**
  * Class TwigConfigProvider.
@@ -32,7 +32,7 @@ class TwigConfigProvider extends Provider
     /**
      * Publish the provider.
      *
-     * @param \Valkyrja\Contracts\Application $app The application
+     * @param \Valkyrja\Application $app The application
      *
      * @return void
      */

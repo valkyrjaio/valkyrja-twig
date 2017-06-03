@@ -13,10 +13,10 @@ namespace Valkyrja\Twig\Providers;
 
 use Twig_Environment;
 use Twig_Loader_Filesystem;
-use Valkyrja\Contracts\Application;
-use Valkyrja\Contracts\View\View;
-use Valkyrja\Support\Provider;
-use Valkyrja\Twig\TwigView;
+use Valkyrja\Application;
+use Valkyrja\View\View;
+use Valkyrja\Support\Providers\Provider;
+use Valkyrja\Twig\TwigPhpView;
 
 /**
  * Class TwigServiceProvider.
@@ -39,7 +39,7 @@ class TwigServiceProvider extends Provider
     /**
      * Publish the provider.
      *
-     * @param \Valkyrja\Contracts\Application $app The application
+     * @param \Valkyrja\Application $app The application
      *
      * @throws \Twig_Error_Loader
      *
@@ -54,7 +54,7 @@ class TwigServiceProvider extends Provider
     /**
      * Bind the twig environment to the container.
      *
-     * @param \Valkyrja\Contracts\Application $app The application
+     * @param \Valkyrja\Application $app The application
      *
      * @throws \Twig_Error_Loader
      *
@@ -96,7 +96,7 @@ class TwigServiceProvider extends Provider
     /**
      * Bind the twig view as the view in the container.
      *
-     * @param \Valkyrja\Contracts\Application $app The application
+     * @param \Valkyrja\Application $app The application
      *
      * @return void
      */
@@ -111,13 +111,13 @@ class TwigServiceProvider extends Provider
     /**
      * Get the twig view when building a service container item.
      *
-     * @param \Valkyrja\Contracts\Application $app The application
+     * @param \Valkyrja\Application $app The application
      *
-     * @return \Valkyrja\Twig\TwigView
+     * @return \Valkyrja\Twig\TwigPhpView
      */
-    public static function getTwigView(Application $app): TwigView
+    public static function getTwigView(Application $app): TwigPhpView
     {
-        return new TwigView(
+        return new TwigPhpView(
             $app,
             $app->container()->getSingleton(Twig_Environment::class)
         );
