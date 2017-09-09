@@ -39,8 +39,12 @@ class TwigPhpView extends PhpView
      * @param string                $template  [optional] The template to set
      * @param array                 $variables [optional] The variables to set
      */
-    public function __construct(Application $app, Twig_Environment $twig, string $template = '', array $variables = [])
-    {
+    public function __construct(
+        Application $app,
+        Twig_Environment $twig,
+        string $template = null,
+        array $variables = []
+    ) {
         parent::__construct($app, $template, $variables);
 
         $this->twig          = $twig;
@@ -55,7 +59,7 @@ class TwigPhpView extends PhpView
      *
      * @return \Valkyrja\View\View
      */
-    public function make(string $template = '', array $variables = []): View
+    public function make(string $template = null, array $variables = []): View
     {
         return new static($this->app, $this->twig, $template, $variables);
     }
